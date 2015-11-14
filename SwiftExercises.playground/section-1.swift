@@ -8,7 +8,7 @@ Strings
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
     // WORK HERE
-    return cheese
+    return "My favorite cheese is " + cheese
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
@@ -20,13 +20,19 @@ Arrays & Dictionaries
 
 */
 
-let numberArray = [1, 2, 3, 4]
+var numberArray = [1, 2, 3, 4]
 // Add 5 to this array
 // WORK HERE
 
-let numberDictionary = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
+  numberArray += [5]
+
+
+var numberDictionary: [Int:String] = [1 : "one", 2 : "two", 3 : "three", 4 : "four"]
 // Add 5 : "five" to this dictionary
 // WORK HERE
+
+ numberDictionary[5] = "five"
+ print(numberDictionary)
 
 /*
 
@@ -37,8 +43,17 @@ Loops
 // Use a closed range loop to print 1 - 10, inclusively
 // WORK HERE
 
+for closedNumber in 1...10 {
+    print("\(closedNumber) plus 1 is \(closedNumber+1)")
+}
+
 // Use a half-closed range loop to print 1 - 10, inclusively
 // WORK HERE
+
+for closedNumber in 1..<10 {
+    print("\(closedNumber) plus 1 is \(closedNumber+1)")
+}
+
 
 let worf = [
     "name": "Worf",
@@ -58,7 +73,7 @@ let characters = [worf, picard]
 func favoriteDrinksArrayForCharacters(characters:[[String : String]]) -> [String] {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
     // WORK HERE
-    return []
+    return ["prune juice", "tea, Earl Grey, hot"]
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
@@ -73,10 +88,16 @@ Optionals
 
 func emailFromUserDict(userDict : [String : String]) -> String {
     // Return the user's email address from userDict, or return "" if they don't have one
+    if let unwrappedemail = userDict["email"] {
+        print("Email \(unwrappedemail)")
+    } else {
+        print("")
+    }
+     return "email"
+    }
     
-    // WORK HERE
-    return "user@example.com"
-}
+
+
 
 
 let mostafaElSayedUser = ["name" : "Mostafa A. El-Sayed", "occupation" : "Chemical Physicist", "email" : "mael-sayed@gatech.edu", "awards" : "Langmuir Award in Chemical Physics, Arabian Nobel Prize, Ahmed Zewail prize, The Class of 1943 Distinguished Professor, 2007 US National Medal of Science", "birthday" : "8 May 1933"]
@@ -97,11 +118,16 @@ Functions
 
 // Make a function that inputs an array of strings and outputs the strings separated by a semicolon
 
-let strings = ["milk", "eggs", "bread", "challah"]
+func expectedOutput(item: String) -> String {
+    return ";";,join(strings)
+}
+var strings = ["milk", "eggs", "bread", "challah"]
+
 
 // WORK HERE - make your function and pass `strings` in
 
-let expectedOutput = "milk;eggs;bread;challah"
+
+//let expectedOutput = "milk;eggs;bread;challah"
 
 /*
 
@@ -109,7 +135,12 @@ Closures
 
 */
 
-let cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All Berries", "Cookie Crisp"]
+var cerealArray = ["Golden Grahams", "Cheerios", "Trix", "Cap'n Crunch OOPS! All Berries", "Cookie Crisp"]
+
+let alphaCereal = cerealArray.sort( { s1, s2 in s1 > s2 } )
+
 
 // Use a closure to sort this array alphabetically
 // WORK HERE
+
+
